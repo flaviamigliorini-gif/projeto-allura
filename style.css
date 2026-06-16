@@ -1,0 +1,347 @@
+/* Variáveis de Cores (Tema Claro e Escuro) */
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --card-bg: #ffffff;
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --border-color: #dee2e6;
+    --text-muted: #6c757d;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --text-color: #f8f9fa;
+    --card-bg: #1e1e1e;
+    --border-color: #333333;
+    --text-muted: #a0a0a0;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Configurações Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Cabeçalho */
+header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    font-weight: 500;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#theme-toggle, .menu-toggle {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+/* Hero Banner (Destaque) */
+.hero {
+    margin: 2rem auto;
+}
+
+.hero-banner {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 450px;
+}
+
+.hero-banner img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    color: #fff;
+}
+
+.category {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    margin: 0.5rem 0;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Layout Principal (Grid + Sidebar) */
+.main-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.news-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.news-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+}
+
+.card-img img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-body h2 {
+    font-size: 1.3rem;
+    margin: 0.5rem 0;
+}
+
+.card-body p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    padding-top: 0.8rem;
+}
+
+/* Cores das categorias secundárias */
+.category.ia { background-color: #28a745; }
+.category.games { background-color: #6f42c1; }
+.category.seguranca { background-color: #dc3545; }
+
+/* Sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.widget {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.widget h3 {
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 0.5rem;
+}
+
+.trending-list {
+    list-style: none;
+}
+
+.trending-list li {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+}
+
+.trending-list .number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    opacity: 0.7;
+}
+
+.newsletter input {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.btn-block {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+/* Rodapé */
+footer {
+    background-color: var(--card-bg);
+    border-top: 1px solid var(--border-color);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.social-links a {
+    font-size: 1.3rem;
+    margin-left: 1rem;
+}
+
+/* Responsividade (Telas menores) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--card-bg);
+        flex-direction: column;
+        padding: 1rem;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-banner {
+        height: 300px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.4rem;
+    }
+
+    .news-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .card-img {
+        height: 200px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+}
