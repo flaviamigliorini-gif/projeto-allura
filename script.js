@@ -1,47 +1,69 @@
-// Seleção de elementos do DOM
-const mobileMenu = document.getElementById('mobile-menu');
-const navLinks = document.getElementById('navLinks');
-const themeToggle = document.getElementById('theme-toggle');
+document.addEventListener('DOMContentLoaded', () => {
+    // Seleção de elementos ativos
+    const mobileMenuBtn = document.getElementById('mobile-menu');
+    const navLinks = document.getElementById('navLinks');
+    const themeToggleBtn = document.getElementById('theme-toggle');
 
-// Menu Responsivo (Abre e fecha no celular)
-mobileMenu.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    
-    // Altera o ícone de barras para um 'X' quando aberto
-    const icon = mobileMenu.querySelector('i');
-    if (navLinks.classList.contains('active')) {
-        icon.classList.replace('fa-bars', 'fa-xmark');
-    } else {
-        icon.classList.replace('fa-xmark', 'fa-bars');
+    // 1. Menu Mobile Eficiente
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navLinks.classList.toggle('open');
+            
+            // Troca de ícone dinamicamente
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navLinks.classList.contains('open')) {
+                icon.classList.replace('fa-bars', 'fa-xmark');
+            } else {
+                icon.classList.replace('fa-xmark', 'fa-bars');
+            }
+        });
+
+        // Fecha o menu se clicar em qualquer lugar fora dele
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('open');
+                mobileMenuBtn.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+            }
+        });
+
+        // Fecha se a tela for redimensionada para desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                mobileMenuBtn.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+            }
+        });
+    }
+
+    // 2. Mecanismo de Dark Mode otimizado
+    const updateIcon = (theme) => {
+        const themeIcon = themeToggleBtn.querySelector('i');
+        if (theme === 'dark') {
+            themeIcon.className = 'fa-solid fa-sun';
+        } else {
+            themeIcon.className = 'fa-solid fa-moon';
+        }
+    };
+
+    if (themeToggleBtn) {
+        // Verifica o tema inicial guardado ou assume o padrão do sistema do usuário
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+        // Aplica o tema inicial
+        document.documentElement.setAttribute('data-theme', initialTheme);
+        updateIcon(initialTheme);
+
+        // Evento de clique para alternar
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', targetTheme);
+            localStorage.setItem('theme', targetTheme);
+            updateIcon(targetTheme);
+        });
     }
 });
-
-// Controle do Modo Escuro (Dark Mode)
-themeToggle.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    let newTheme = 'light';
-
-    if (currentTheme !== 'dark') {
-        newTheme = 'dark';
-    }
-
-    document.documentElement.setAttribute('data-theme', newTheme);
-    
-    // Altera o ícone do botão de tema
-    const themeIcon = themeToggle.querySelector('i');
-    if (newTheme === 'dark') {
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
-    } else {
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
-    }
-
-    // Salva a preferência do usuário no navegador
-    localStorage.setItem('theme', newTheme);
-});
-
-// Aplica o tema salvo automaticamente ao carregar a página
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
-}
