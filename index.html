@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNews - O Seu Portal de Tecnologia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="navbar container">
+            <div class="logo">
+                <i class="fa-solid fa-microchip"></i> Tech<span>News</span>
+            </div>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Gadgets</a></li>
+                    <li><a href="#">IA</a></li>
+                    <li><a href="#">Games</a></li>
+                    <li><a href="#">Segurança</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button id="theme-toggle" aria-label="Mudar tema">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <div class="menu-toggle" id="mobile-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero container">
+        <div class="hero-banner">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt="Placa de circuito">
+            <div class="hero-content">
+                <span class="category">Hardware</span>
+                <h1>O futuro dos processadores: Nova geração promete o dobro de eficiência</h1>
+                <p>Confira os testes exclusivos da nova arquitetura que promete revolucionar computadores e smartphones ainda este ano.</p>
+                <a href="#" class="btn">Ler Notícia</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content container">
+        <section class="news-grid">
+            
+            <article class="news-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=500&q=80" alt="Inteligência Artificial">
+                </div>
+                <div class="card-body">
+                    <span class="category ia">Inteligência Artificial</span>
+                    <h2>Nova IA generativa cria vídeos realistas a partir de textos simples</h2>
+                    <p>Ferramenta impressiona pela fluidez dos movimentos e já levanta debates sobre direitos autorais.</p>
+                    <div class="card-footer">
+                        <span>Por João Silva</span>
+                        <span>Há 2 horas</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=500&q=80" alt="Games">
+                </div>
+                <div class="card-body">
+                    <span class="category games">Games</span>
+                    <h2>Consoles portáteis ganham força no mercado e ameaçam PCs gamers</h2>
+                    <p>Com chips cada vez mais potentes, jogar títulos AAA em qualquer lugar virou realidade de massa.</p>
+                    <div class="card-footer">
+                        <span>Por Ana Costa</span>
+                        <span>Há 4 horas</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="card-img">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=500&q=80" alt="Segurança">
+                </div>
+                <div class="card-body">
+                    <span class="category seguranca">Segurança</span>
+                    <h2>Grande falha de segurança em sistemas bancários é corrigida de urgência</h2>
+                    <p>Especialistas alertam para a importância de manter aplicativos atualizados para evitar fraudes.</p>
+                    <div class="card-footer">
+                        <span>Por Lucas Lima</span>
+                        <span>Há 6 horas</span>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <aside class="sidebar">
+            <div class="widget">
+                <h3>Mais Lidas</h3>
+                <ul class="trending-list">
+                    <li>
+                        <span class="number">1</span>
+                        <a href="#">Tudo o que sabemos sobre o novo smartphone dobrável.</a>
+                    </li>
+                    <li>
+                        <span class="number">2</span>
+                        <a href="#">Criptomoedas entram em nova onda de valorização histórica.</a>
+                    </li>
+                    <li>
+                        <span class="number">3</span>
+                        <a href="#">5 extensões para aumentar sua produtividade no navegador.</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="widget newsletter">
+                <h3>Fique Atualizado</h3>
+                <p>Receba as principais notícias de tecnologia diretamente no seu e-mail.</p>
+                <form>
+                    <input type="email" placeholder="Seu melhor e-mail" required>
+                    <button type="submit" class="btn btn-block">Inscrever</button>
+                </form>
+            </div>
+        </aside>
+    </main>
+
+    <footer>
+        <div class="footer-content container">
+            <p>&copy; 2026 TechNews. Todos os direitos reservados.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
